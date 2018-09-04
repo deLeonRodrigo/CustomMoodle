@@ -5,6 +5,8 @@
  */
 package edu.salle.custommoodle.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Rodrigo
@@ -53,5 +55,21 @@ public class Student {
         return String.format("id=%s\n,name=%s\n,lastName=%s", id,name,lastName); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Student other = (Student) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
 }
