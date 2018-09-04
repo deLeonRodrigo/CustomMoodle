@@ -10,7 +10,7 @@ import edu.salle.custommoodle.model.Student;
 
 /**
  *
- * @author Josue Romo
+ * @author Rodrigo
  */
 public class StudentWindow extends javax.swing.JFrame {
 

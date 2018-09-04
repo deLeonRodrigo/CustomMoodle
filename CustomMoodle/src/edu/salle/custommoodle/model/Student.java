@@ -7,7 +7,7 @@ package edu.salle.custommoodle.model;
 
 /**
  *
- * @author Josue Romo
+ * @author Rodrigo
  */
 public class Student {
     private String name;

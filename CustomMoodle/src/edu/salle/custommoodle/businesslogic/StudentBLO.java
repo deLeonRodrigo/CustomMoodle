@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Josue Romo
+ * @author Rodrigo
  */
 public class StudentBLO {
     private StudentDAO studentDAO;
@@ -34,5 +34,16 @@ public class StudentBLO {
     public Student find(String id)
     {
         return studentDAO.find(id);
+    }
+    public Student findByLastName(String lastName){
+        return studentDAO.findByLastName(lastName);
+    }
+    
+    public void delete(Student student){
+        studentDAO.delete(student);
+    }
+    
+    public void update(Student student){
+        studentDAO.update(student);
     }
 }
