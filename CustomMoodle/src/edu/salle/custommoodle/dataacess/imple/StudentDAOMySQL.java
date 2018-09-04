@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author Josue Romo
+ * @author Rodrigo
  */
 public class StudentDAOMySQL implements StudentDAO {
 
@@ -27,6 +27,21 @@ public class StudentDAOMySQL implements StudentDAO {
 
     @Override
     public Student find(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Student findByLastName(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Student student) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Student student) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

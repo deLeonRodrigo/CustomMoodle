@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Josue Romo
+ * @author Rodrigo
  */
 public class StudentDAOLisImple implements StudentDAO
 {
@@ -41,6 +41,24 @@ public class StudentDAOLisImple implements StudentDAO
             }
         }
         return null;
+    }
+
+    @Override
+    public Student findByLastName(String lastName) {
+        lastName = lastName.toLowerCase().trim();
+        Student res = null;
+        for(Student student : studentList) if(student.getLastName().toLowerCase().contains(lastName)) return student;
+        return null;
+    }
+
+    @Override
+    public void delete(Student student) {
+        studentList.remove(student);
+    }
+
+    @Override
+    public void update(Student student) {
+        studentList.set(studentList.indexOf(student), student);
     }
     
 }
