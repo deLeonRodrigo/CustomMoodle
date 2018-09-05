@@ -122,10 +122,14 @@ public class StudentWindow extends javax.swing.JFrame {
 //        {
 //            tfName.setText(student.getName());
 //            tfLastName.setText(student.getLastName());
-//        }
+//        }        String lastName = tfLastName.getText().trim();
         String lastName = tfLastName.getText().trim();
-        List<Student> studentList = studentBLO.findByLastName(lastName);
-        refreshTable(studentList);
+        if(!lastName.isEmpty()){                
+            List<Student> studentList = studentBLO.findByLastName(lastName);
+            if(!studentList.isEmpty()){
+                refreshTable(studentList);
+            }
+        }
     }//GEN-LAST:event_bSearchActionPerformed
 
     private void clearTable(){
