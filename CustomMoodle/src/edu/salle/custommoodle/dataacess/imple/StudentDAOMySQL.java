@@ -31,7 +31,7 @@ public class StudentDAOMySQL implements StudentDAO {
     }
 
     @Override
-    public Student findByLastName(String name) {
+    public List<Student> findByLastName(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -20,7 +20,7 @@ public interface StudentDAO {
     
     public Student find(String id);
     
-    public Student findByLastName(String lastName);
+    public List<Student> findByLastName(String lastName);
     
     public void delete(Student student);
     

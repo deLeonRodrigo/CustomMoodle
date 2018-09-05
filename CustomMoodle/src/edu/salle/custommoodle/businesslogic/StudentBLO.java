@@ -35,7 +35,7 @@ public class StudentBLO {
     {
         return studentDAO.find(id);
     }
-    public Student findByLastName(String lastName){
+    public List<Student> findByLastName(String lastName){
         return studentDAO.findByLastName(lastName);
     }
     

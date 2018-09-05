@@ -116,23 +116,24 @@ public class StudentWindow extends javax.swing.JFrame {
 
     private void bSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSearchActionPerformed
         // TODO add your handling code here:
-        String id = fID.getText();
-        Student student = studentBLO.find(id);
-        if(student!=null)
-        {
-            tfName.setText(student.getName());
-            tfLastName.setText(student.getLastName());
-        }
+//        String id = fID.getText();
+//        Student student = studentBLO.find(id);
+//        if(student!=null)
+//        {
+//            tfName.setText(student.getName());
+//            tfLastName.setText(student.getLastName());
+//        }
+        String lastName = tfLastName.getText().trim();
+        List<Student> studentList = studentBLO.findByLastName(lastName);
+        refreshTable(studentList);
     }//GEN-LAST:event_bSearchActionPerformed
 
     private void clearTable(){
         DefaultTableModel dtm = (DefaultTableModel)tblStudents.getModel();
         while(dtm.getRowCount() > 0) dtm.removeRow(0);
     }
-    
-    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+    private void refreshTable(List<Student> studentList){
         clearTable();
-        List<Student> studentList = studentBLO.findAll();
         DefaultTableModel dtm = (DefaultTableModel)tblStudents.getModel();
         Object[] emptyRow = {""};
         
@@ -142,6 +143,10 @@ public class StudentWindow extends javax.swing.JFrame {
             dtm.setValueAt(studentList.get(i).getName(), i, 0);
             dtm.setValueAt(studentList.get(i).getLastName(), i, 1);
         }
+    }
+    
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        refreshTable(studentBLO.findAll());
     }//GEN-LAST:event_btnRefreshActionPerformed
 
 

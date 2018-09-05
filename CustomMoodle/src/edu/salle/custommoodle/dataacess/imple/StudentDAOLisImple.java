@@ -44,11 +44,12 @@ public class StudentDAOLisImple implements StudentDAO
     }
 
     @Override
-    public Student findByLastName(String lastName) {
+    public List<Student> findByLastName(String lastName) {
+        List<Student> resStudentList = new ArrayList<>();
         lastName = lastName.toLowerCase().trim();
         Student res = null;
-        for(Student student : studentList) if(student.getLastName().toLowerCase().contains(lastName)) return student;
-        return null;
+        for(Student student : studentList) if(student.getLastName().toLowerCase().contains(lastName)) resStudentList.add(student);
+        return resStudentList;
     }
 
     @Override
