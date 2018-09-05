@@ -25,4 +25,8 @@ public interface StudentDAO {
     public void delete(Student student);
     
     public void update(Student student);
+    
+    public void load();
+    
+    public void commitChanges();
 }

@@ -5,10 +5,18 @@
  */
 package edu.salle.custommoodle.dataacess.imple;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import edu.salle.custommoodle.dataacess.StudentDAO;
 import edu.salle.custommoodle.model.Student;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,6 +68,31 @@ public class StudentDAOLisImple implements StudentDAO
     @Override
     public void update(Student student) {
         studentList.set(studentList.indexOf(student), student);
+    }
+
+    @Override
+    public void load() {
+      try {
+          Gson gson = new Gson();
+          BufferedReader br = new BufferedReader(new FileReader("students.JSON"));
+          studentList = gson.fromJson(br, new TypeToken<List<Student>>() {
+        }.getType());
+        br.close();
+      } catch (Exception ex) {
+          ex.printStackTrace();
+      }
+    }
+
+    @Override
+    public void commitChanges() {
+        try{
+            Gson gson = new Gson();
+            FileWriter writer = new FileWriter("students.JSON");
+            writer.write(gson.toJson(studentList));
+            writer.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
     
 }

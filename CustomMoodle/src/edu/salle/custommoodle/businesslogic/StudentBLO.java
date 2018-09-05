@@ -5,9 +5,14 @@
  */
 package edu.salle.custommoodle.businesslogic;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import edu.salle.custommoodle.dataacess.StudentDAO;
 import edu.salle.custommoodle.dataacess.imple.StudentDAOLisImple;
 import edu.salle.custommoodle.model.Student;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.List;
 
 /**
@@ -45,5 +50,13 @@ public class StudentBLO {
     
     public void update(Student student){
         studentDAO.update(student);
+    }
+
+    public void load() {
+        studentDAO.load();
+    }
+
+    public void commitChanges() {
+        studentDAO.commitChanges();
     }
 }
