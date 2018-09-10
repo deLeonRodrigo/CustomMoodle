@@ -78,6 +78,9 @@ public class StudentDAOLisImple implements StudentDAO
           studentList = gson.fromJson(br, new TypeToken<List<Student>>() {
         }.getType());
         br.close();
+        if(studentList == null){
+            studentList = new ArrayList<>();
+        }
       } catch (Exception ex) {
           ex.printStackTrace();
       }
