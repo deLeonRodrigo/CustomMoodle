@@ -19,28 +19,28 @@ import java.util.List;
 public class SubjectDAOLisImple implements SubjectDAO {
     private static List<Subject> subjectList = new ArrayList<>();
     
+    @Override
     public Subject save(Subject subject) {
         subjectList.add(subject);
         return subject;
     }
     
+    @Override
     public List<Subject> findAll() {
         return subjectList;
     }
     
+    @Override
      public List<Student> findStudents(int id) {
         StudentBLO studentBLO = new StudentBLO();
         List<Student> studentList = new ArrayList<>();
-        for(Student student : studentBLO.findAll())
-        {
-            if(student.subjectList.contains(id))
-            {
-                studentList.add(student);
-            }
-        }
+        studentBLO.findAll().stream().filter((student) -> (student.subjectList.contains(id))).forEachOrdered((student) -> {
+            studentList.add(student);
+        });
         return studentList;
     }
     
+    @Override
      public void load() {
       try {
           Gson gson = new Gson();
@@ -56,6 +56,7 @@ public class SubjectDAOLisImple implements SubjectDAO {
       }
     }
 
+    @Override
     public void commitChanges() {
         try{
             Gson gson = new Gson();

@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import edu.salle.custommoodle.dataacess.StudentDAO;
 import edu.salle.custommoodle.model.Student;
-import static edu.salle.custommoodle.model.Student.subjectList;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -59,9 +58,6 @@ public class StudentDAOLisImple implements StudentDAO
         return resStudentList;
     }
     
-    public void addSubject(int id){
-        if(!subjectList.contains(id)) subjectList.add(id);
-    }
 
     @Override
     public void delete(Student student) {
@@ -98,6 +94,31 @@ public class StudentDAOLisImple implements StudentDAO
             writer.close();
         }catch(Exception ex){
             ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Student> searchStudentsSubject(int id) {
+        List<Student> studentsSub = new ArrayList<>();
+        studentList.stream().filter((student) -> (student.subjectList.contains(id))).forEachOrdered((student) -> {
+            studentsSub.add(student);
+      });
+        return studentsSub;
+    }
+
+    @Override
+    public void addSubject(String idS, int id) {
+        int idI = -1;
+        for(int i = 0; i < studentList.size(); i++){
+            if(studentList.get(i).getId().equals(idS))  idI = i;
+        }
+        if(!studentList.get(idI).subjectList.contains(id)) studentList.get(idI).subjectList.add(id);
+    }
+
+    @Override
+    public void subjectRemove(int idS, int id) {
+        for(int i = 0; i < studentList.get(idS).subjectList.size(); i++){
+            if(studentList.get(idS).subjectList.get(i) == id) studentList.get(idS).subjectList.remove(i);
         }
     }
     

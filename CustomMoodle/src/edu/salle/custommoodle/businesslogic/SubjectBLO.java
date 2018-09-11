@@ -1,6 +1,7 @@
 package edu.salle.custommoodle.businesslogic;
 
 import edu.salle.custommoodle.dataacess.SubjectDAO;
+import edu.salle.custommoodle.dataacess.imple.SubjectDAOLisImple;
 import edu.salle.custommoodle.model.Student;
 import edu.salle.custommoodle.model.Subject;
 import java.util.List;
@@ -10,8 +11,11 @@ import java.util.List;
  * Universidad de La Salle Bajío
  */
 public class SubjectBLO implements SubjectDAO {
-
     private SubjectDAO subjectDAO;
+    
+    public SubjectBLO(){
+        subjectDAO = new SubjectDAOLisImple();
+    }
     
     @Override
     public Subject save(Subject subject) {
@@ -22,15 +26,15 @@ public class SubjectBLO implements SubjectDAO {
     public List<Subject> findAll() {
         return subjectDAO.findAll();
     }
-
-    @Override
-    public List<Student> findStudents(int id) {
-        return subjectDAO.findStudents(id);
-    }
-
+    
     @Override
     public void load() {
         subjectDAO.load();
+    }
+    
+    @Override
+    public List<Student> findStudents(int id) {
+        return subjectDAO.findStudents(id);
     }
 
     @Override

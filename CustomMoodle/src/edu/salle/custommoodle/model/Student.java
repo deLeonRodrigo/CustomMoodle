@@ -86,7 +86,7 @@ public class Student {
     private String month;
     private String year;
     private String id;
-    public static List<Integer> subjectList = new ArrayList<>();
+    public List<Integer> subjectList = new ArrayList<>();
 
     public Student() {
     }
