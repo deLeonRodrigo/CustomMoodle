@@ -42,4 +42,9 @@ public class SubjectBLO implements SubjectDAO {
         subjectDAO.commitChanges();
     }
 
+    @Override
+    public void update(Subject subject) {
+        subjectDAO.update(subject);
+    }
+
 }

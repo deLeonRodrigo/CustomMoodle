@@ -64,6 +64,7 @@ public class StudentWindow extends javax.swing.JFrame {
         btnSearchS = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblStSub = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -223,6 +224,9 @@ public class StudentWindow extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblStSub);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 370, 380));
+
+        jButton2.setText("Search subjects");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -417,6 +421,7 @@ public class StudentWindow extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbState;
     private javax.swing.JTextField fID;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

@@ -23,4 +23,6 @@ public interface SubjectDAO {
     public void load();
 
     public void commitChanges();
+    
+    public void update(Subject subject);
 }

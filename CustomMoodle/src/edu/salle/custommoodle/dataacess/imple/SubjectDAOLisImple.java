@@ -67,4 +67,9 @@ public class SubjectDAOLisImple implements SubjectDAO {
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public void update(Subject subject) {
+        subjectList.set(subject.getId(), subject);
+    }
 }
