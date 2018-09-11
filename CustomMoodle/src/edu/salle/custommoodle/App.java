@@ -7,7 +7,9 @@ package edu.salle.custommoodle;
 
 import edu.salle.custommoodle.businesslogic.StudentBLO;
 import edu.salle.custommoodle.model.Student;
+import edu.salle.custommoodle.view.SelcetionWindow;
 import edu.salle.custommoodle.view.StudentWindow;
+import edu.salle.custommoodle.view.SubjectWindow;
 import static java.awt.SystemColor.window;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class App {
 //           System.out.println(student);
 //           System.out.println();
 //       }
-    StudentWindow window = new StudentWindow();
+    SelcetionWindow window = new SelcetionWindow();
     window.setVisible(true);
        
       

@@ -6,6 +6,7 @@
 package edu.salle.custommoodle.dataacess;
 
 import edu.salle.custommoodle.model.Student;
+import edu.salle.custommoodle.model.Subject;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
  * @author Rodrigo
  */
 public interface StudentDAO {
+    public void addSubject(String idS, int id);
     
     public Student save(Student student);
     
@@ -20,9 +22,19 @@ public interface StudentDAO {
     
     public Student find(String id);
     
-    public Student findByLastName(String lastName);
+    public List<Student> findByLastName(String lastName);
     
     public void delete(Student student);
     
     public void update(Student student);
+    
+    public void load();
+    
+    public void commitChanges();
+    
+    public void subjectRemove(int idS, int id);
+    
+    public List<Student> searchStudentsSubject(int id);
+    
+    public List<Subject> getStudentSubjects(String id);
 }
