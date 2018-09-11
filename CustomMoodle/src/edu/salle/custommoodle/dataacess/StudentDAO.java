@@ -6,6 +6,7 @@
 package edu.salle.custommoodle.dataacess;
 
 import edu.salle.custommoodle.model.Student;
+import static edu.salle.custommoodle.model.Student.subjectList;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
  * @author Rodrigo
  */
 public interface StudentDAO {
+    public void addSubject(int id);
     
     public Student save(Student student);
     

@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import edu.salle.custommoodle.dataacess.StudentDAO;
 import edu.salle.custommoodle.dataacess.imple.StudentDAOLisImple;
 import edu.salle.custommoodle.model.Student;
+import static edu.salle.custommoodle.model.Student.subjectList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -26,6 +27,9 @@ public class StudentBLO {
         studentDAO = new StudentDAOLisImple();
     }
     
+    public void addSubject(int id){
+        studentDAO.addSubject(id);
+    }
     public Student save(Student student)
     {
      return   studentDAO.save(student); 

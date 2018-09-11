@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import edu.salle.custommoodle.dataacess.StudentDAO;
 import edu.salle.custommoodle.model.Student;
+import static edu.salle.custommoodle.model.Student.subjectList;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,12 +25,10 @@ import java.util.logging.Logger;
  */
 public class StudentDAOLisImple implements StudentDAO
 {
-  private static List<Student> studentList = new ArrayList<>();
+  public static List<Student> studentList = new ArrayList<>();
 
     @Override
     public Student save(Student student) {
-        String id = Integer.toString(studentList.size()+1);
-        student.setId(id);
         studentList.add(student);
         return student;
     }
@@ -58,6 +57,10 @@ public class StudentDAOLisImple implements StudentDAO
         Student res = null;
         for(Student student : studentList) if(student.getLastName().toLowerCase().contains(lastName) || student.getName().toLowerCase().contains(lastName)) resStudentList.add(student);
         return resStudentList;
+    }
+    
+    public void addSubject(int id){
+        if(!subjectList.contains(id)) subjectList.add(id);
     }
 
     @Override
