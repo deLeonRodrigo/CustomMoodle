@@ -32,9 +32,9 @@ public interface StudentDAO {
     
     public void commitChanges();
     
-    public void subjectRemove(int idS, int id);
-    
     public List<Student> searchStudentsSubject(int id);
     
     public List<Subject> getStudentSubjects(String id);
+    
+    public void subjectRemove(String idS, int id);
 }

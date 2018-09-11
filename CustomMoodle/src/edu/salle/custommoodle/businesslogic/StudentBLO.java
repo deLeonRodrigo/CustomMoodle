@@ -19,7 +19,7 @@ public class StudentBLO {
     public List<Student> searchStudentsSubject(int id){
         return studentDAO.searchStudentsSubject(id);
     }
-    public void removeSubject(int idS, int id){
+    public void subjectRemove(String idS, int id){
         studentDAO.subjectRemove(idS, id);
     }
     
@@ -28,7 +28,7 @@ public class StudentBLO {
     }
     public Student save(Student student)
     {
-     return   studentDAO.save(student); 
+     return studentDAO.save(student); 
     }
     
     public List<Student> findAll()
