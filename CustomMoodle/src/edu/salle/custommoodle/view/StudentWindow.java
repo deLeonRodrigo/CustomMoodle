@@ -418,7 +418,7 @@ public class StudentWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnDeleteSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSActionPerformed
-        studentBLO.removeSubject(Integer.parseInt(this.jTextField1.getText()),this.jComboBox4.getSelectedIndex());
+        studentBLO.subjectRemove(this.jTextField1.getText(),this.jComboBox4.getSelectedIndex());
     }//GEN-LAST:event_btnDeleteSActionPerformed
 
     private void btnSearchSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSActionPerformed

@@ -57,11 +57,6 @@ public class StudentDAOMySQL implements StudentDAO {
     }
 
     @Override
-    public void subjectRemove(int idS, int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public List<Student> searchStudentsSubject(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -73,6 +68,11 @@ public class StudentDAOMySQL implements StudentDAO {
 
     @Override
     public List<Subject> getStudentSubjects(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void subjectRemove(String idS, int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

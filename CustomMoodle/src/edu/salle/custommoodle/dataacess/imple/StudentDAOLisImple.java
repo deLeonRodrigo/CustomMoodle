@@ -118,9 +118,13 @@ public class StudentDAOLisImple implements StudentDAO
     }
 
     @Override
-    public void subjectRemove(int idS, int id) {
-        for(int i = 0; i < studentList.get(idS).subjectList.size(); i++){
-            if(studentList.get(idS).subjectList.get(i) == id) studentList.get(idS).subjectList.remove(i);
+    public void subjectRemove(String idS, int id) {
+        int idI = -1;
+        for(int i = 0; i < studentList.size(); i++){
+            if(studentList.get(i).getId().equals(idS))  idI = i;
+        }
+        for(int i = 0; i < studentList.get(idI).subjectList.size(); i++){
+            if(studentList.get(idI).subjectList.get(i) == id) studentList.get(idI).subjectList.remove(i);
         }
     }
 
