@@ -3,6 +3,7 @@ package edu.salle.custommoodle.businesslogic;
 import edu.salle.custommoodle.dataacess.StudentDAO;
 import edu.salle.custommoodle.dataacess.imple.StudentDAOLisImple;
 import edu.salle.custommoodle.model.Student;
+import edu.salle.custommoodle.model.Subject;
 import java.util.List;
 
 /**
@@ -57,5 +58,8 @@ public class StudentBLO {
 
     public void commitChanges() {
         studentDAO.commitChanges();
+    }
+    public List<Subject> getStudentSubjects(String id) {
+        return studentDAO.getStudentSubjects(id);
     }
 }

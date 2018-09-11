@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import edu.salle.custommoodle.businesslogic.CURP;
 import edu.salle.custommoodle.businesslogic.SubjectBLO;
+import edu.salle.custommoodle.model.Subject;
 import java.text.Normalizer;
 
 /**
@@ -226,6 +227,11 @@ public class StudentWindow extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 370, 380));
 
         jButton2.setText("Search subjects");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, -1, -1));
 
         pack();
@@ -351,6 +357,18 @@ public class StudentWindow extends javax.swing.JFrame {
             dts.setValueAt(teacher, i, 1);
         }
     }
+    private void refreshTableStu(List<Subject> subjectList){
+        clearTableSub();
+        clearTable();
+        DefaultTableModel dtm = (DefaultTableModel)tblStudents.getModel();
+        Object[] emptyRow = {""};
+        DefaultTableModel dts = (DefaultTableModel)this.tblStSub.getModel();
+        for(int i = 0; i < subjectList.size(); i++){
+            dts.addRow(emptyRow);
+            dts.setValueAt(subjectList.get(i).getName(), i, 0);
+            dts.setValueAt(subjectList.get(i).getTeacher(), i, 1);
+        }
+    }
     
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         refreshTable(studentBLO.findAll());
@@ -407,6 +425,11 @@ public class StudentWindow extends javax.swing.JFrame {
         List<Student> studentListS = studentBLO.searchStudentsSubject(this.jComboBox4.getSelectedIndex());
         refreshTableSub(studentListS, this.jComboBox4.getSelectedIndex());
     }//GEN-LAST:event_btnSearchSActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        List<Subject> subs = studentBLO.getStudentSubjects(this.fID.getText());
+        refreshTableStu(subs);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bSave;

@@ -7,6 +7,7 @@ package edu.salle.custommoodle.dataacess.imple;
 
 import edu.salle.custommoodle.dataacess.StudentDAO;
 import edu.salle.custommoodle.model.Student;
+import edu.salle.custommoodle.model.Subject;
 import java.util.List;
 
 /**
@@ -67,6 +68,11 @@ public class StudentDAOMySQL implements StudentDAO {
 
     @Override
     public void addSubject(String idS, int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Subject> getStudentSubjects(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -7,8 +7,10 @@ package edu.salle.custommoodle.dataacess.imple;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import edu.salle.custommoodle.businesslogic.SubjectBLO;
 import edu.salle.custommoodle.dataacess.StudentDAO;
 import edu.salle.custommoodle.model.Student;
+import edu.salle.custommoodle.model.Subject;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -120,6 +122,17 @@ public class StudentDAOLisImple implements StudentDAO
         for(int i = 0; i < studentList.get(idS).subjectList.size(); i++){
             if(studentList.get(idS).subjectList.get(i) == id) studentList.get(idS).subjectList.remove(i);
         }
+    }
+
+    @Override
+    public List<Subject> getStudentSubjects(String id) {
+        int idI = -1;
+        SubjectBLO subjectBLO = new SubjectBLO();
+        List<Subject> subjects = new ArrayList<>();
+        for(int i = 0; i < studentList.size(); i++) if(studentList.get(i).getId().equals(id)){ idI = i; break;}
+        for(int i = 0; i < studentList.get(idI).subjectList.size(); i++) 
+            subjects.add(subjectBLO.findAll().get(studentList.get(idI).subjectList.get(i)));
+        return subjects;
     }
     
 }
